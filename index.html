@@ -29,18 +29,23 @@
     body {
       margin: 0;
       color: var(--ink);
-      /* trama da toalha + luz de janela, ambas em multiply sobre o creme.
-         A intensidade está embutida nos próprios arquivos: quanto mais claro
-         o JPEG, mais discreto o efeito. Para desligar, apague o background-image. */
       background-color: var(--paper);
-      background-image: url(img/textura-linho.jpg);
-      background-size: 380px 380px;
-      background-repeat: repeat;
-      background-blend-mode: multiply;
       font-family: var(--text);
       font-size: 16px;
       line-height: 1.6;
       text-rendering: optimizeLegibility;
+    }
+    /* TRAMA DE LINHO ---------------------------------------------------------
+       O tecido entra em multiply sobre a cor de cada faixa. Vai no body e
+       também nas seções que têm cor própria, senão a trama sumiria nelas.
+       Para deixar mais forte/fraco: troque o arquivo (quanto mais escuro o
+       JPEG, mais marcado). Para deixar o fio maior/menor: mexa no
+       background-size. Para desligar: apague este bloco inteiro. */
+    body, .opening, .includes, .site-footer {
+      background-image: url(img/textura-linho.jpg);
+      background-size: 280px 280px;
+      background-repeat: repeat;
+      background-blend-mode: multiply;
     }
     a { color: inherit; text-decoration: none; }
     a { -webkit-tap-highlight-color: transparent; }
@@ -158,7 +163,6 @@
       border: 1px solid rgba(21, 21, 21, 0.16);
       border-radius: 190px 190px 26px 26px;
       box-shadow: 0 34px 70px rgba(21, 21, 21, 0.12);
-      transform: rotate(3deg);
     }
     .hero-card img {
       position: absolute;
@@ -170,7 +174,7 @@
     }
     .opening {
       padding-block: 130px;
-      background: var(--paper-light);
+      background-color: var(--paper-light);
       border-block: 1px solid var(--line);
     }
     .opening__grid { display: grid; grid-template-columns: 1fr; }
@@ -202,6 +206,11 @@
       font-weight: 300;
       line-height: 1.08;
       letter-spacing: -0.03em;
+    }
+    .opening__copy h2 em, .section-heading h2 em, .includes h2 em, .fit h2 em, .final-cta h2 em {
+      color: var(--clay);
+      font-style: normal;
+      font-weight: 400;
     }
     .method { padding-block: 135px; }
     .section-heading { display: grid; grid-template-columns: 1fr; margin-bottom: 80px; }
@@ -273,7 +282,7 @@
       background: var(--clay);
       border-radius: 50%;
     }
-    .includes { padding-block: 130px; background: var(--stone); }
+    .includes { padding-block: 130px; background-color: var(--stone); }
     .includes__grid {
       display: grid;
       grid-template-columns: minmax(360px, 1.12fr) minmax(390px, 0.88fr);
@@ -420,16 +429,19 @@
       font-size: 11px;
     }
     .site-footer {
-      background: var(--paper-light);
+      background-color: var(--paper-light);
       color: var(--ink);
       border-top: 1px solid var(--line);
     }
     .site-footer__inner {
       min-height: 76px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      justify-content: center;
+      gap: 8px;
+      padding-block: 26px;
+      text-align: center;
     }
     .site-footer__handle {
       font-size: 14px;
@@ -481,10 +493,8 @@
       .final-cta__portrait { width: 260px; justify-self: center; }
       .site-footer__inner {
         min-height: auto;
-        flex-direction: column;
-        align-items: flex-start;
         gap: 10px;
-        padding-block: 30px 40px;
+        padding-block: 34px 40px;
       }
     }
     @media (max-width: 420px) {
@@ -535,7 +545,7 @@
     <section class="opening" id="conteudo">
       <div class="shell opening__grid">
         <div class="opening__copy">
-          <h2>Você não precisa esperar sua vida se organizar para começar a cuidar da sua alimentação.</h2>
+          <h2>Você não precisa <em>esperar</em> sua vida se organizar para começar a cuidar da sua alimentação.</h2>
           <div class="prose-grid">
             <p>Nem precisa viver em função de uma dieta que só funciona nos dias em que tudo sai exatamente como planejado.</p>
             <p><strong>O Método Vida Possível constrói uma estratégia a partir do que você precisa para sua saúde</strong> e dos objetivos que quer alcançar, sem ignorar a vida que você realmente vive.</p>
@@ -546,7 +556,7 @@
     <section class="method shell" id="metodo">
       <div class="section-heading">
         <div>
-          <h2>Como funciona o Método Vida Possível</h2>
+          <h2>Como funciona o <em>Método Vida Possível</em></h2>
           <p>Quatro etapas para transformar necessidades individuais em uma estratégia que funciona fora do papel.</p>
         </div>
       </div>
@@ -620,7 +630,7 @@
     <section class="includes">
       <div class="shell includes__grid">
         <div class="includes__intro">
-          <h2>Um acompanhamento construído em torno de você.</h2>
+          <h2>Um acompanhamento construído em torno de <em>você.</em></h2>
           <p>A estrutura exata é apresentada de acordo com o formato final do acompanhamento e com o que faz sentido para o seu caso.</p>
           <div class="micro-card"><span>Acompanhamento</span><strong>Formato e duração apresentados na consulta inicial</strong></div>
         </div>
@@ -663,7 +673,7 @@
           <img src="img/tissi-cta.jpg" alt="Tissiana Ramos, nutricionista">
         </figure>
         <div>
-          <h2>Vamos construir uma alimentação que faça sentido para a sua vida?</h2>
+          <h2>Vamos construir uma alimentação que <em>faça sentido</em> para a sua vida?</h2>
           <p>Fale comigo para entender como funciona o acompanhamento e verificar a disponibilidade de agenda.</p>
           <a class="button button--clay" href="https://wa.me/557799052802?text=Ol%C3%A1%21%20Quero%20entender%20como%20funciona%20o%20M%C3%A9todo%20Vida%20Poss%C3%ADvel%20e%20verificar%20a%20disponibilidade%20de%20agenda." target="_blank" rel="noreferrer" aria-label="Quero marcar minha consulta pelo WhatsApp">
             <span>Quero marcar minha consulta</span>
