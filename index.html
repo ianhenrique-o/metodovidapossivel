@@ -85,7 +85,7 @@
       line-height: 1.02;
       letter-spacing: -0.035em;
     }
-    .hero h1 em, .problem h2 em { color: var(--clay); font-style: normal; font-weight: 500; }
+    .hero h1 em { color: var(--clay); font-style: normal; font-weight: 500; }
     .hero__subtitle {
       max-width: 610px;
       margin: 0;
@@ -138,6 +138,9 @@
     }
     .button--light .button__arrow { background: var(--sand); }
     .button--light:hover { color: var(--ink); }
+    .button--clay { background: var(--clay); border-color: var(--clay); color: var(--ink); }
+    .button--clay .button__arrow { background: rgba(21, 21, 21, 0.14); }
+    .button--clay:hover { background: var(--deep); border-color: var(--deep); color: #fff; }
     .hero__art {
       min-height: 530px;
       position: relative;
@@ -165,14 +168,6 @@
       object-fit: cover;
       object-position: center 22%;
     }
-    .orbit {
-      position: absolute;
-      z-index: -1;
-      border: 1px solid rgba(21, 21, 21, 0.22);
-      border-radius: 50%;
-    }
-    .orbit--one { width: 92%; height: 58%; transform: rotate(51deg); }
-    .orbit--two { width: 76%; height: 95%; transform: rotate(-22deg); }
     .opening {
       padding-block: 130px;
       background: var(--paper-light);
@@ -200,37 +195,13 @@
     }
     .prose-grid p { margin: 0; }
     .prose-grid strong { color: var(--ink); font-weight: 600; }
-    .problem {
-      display: grid;
-      border-bottom: 1px solid var(--line);
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-      align-items: center;
-      gap: 100px;
-      padding-block: 130px;
-    }
-    .problem__title h2 { margin-top: 0; }
-    .problem h2, .section-heading h2, .includes h2, .fit h2, .choice h2, .final-cta h2 {
+    .section-heading h2, .includes h2, .fit h2, .final-cta h2 {
       margin: 24px 0 0;
       font-family: var(--display);
       font-size: clamp(36px, 4vw, 54px);
       font-weight: 300;
       line-height: 1.08;
       letter-spacing: -0.03em;
-    }
-    .problem__body { color: var(--ink-soft); font-size: 16px; }
-    .problem__body > p { margin: 0 0 24px; }
-    .problem__body > p:last-child { margin-bottom: 0; }
-    .problem__lead {
-      color: var(--ink) !important;
-      font-family: var(--display);
-      font-size: 25px;
-      line-height: 1.3;
-    }
-    .final-cta {
-      position: relative;
-      overflow: hidden;
-      background: var(--deep);
-      color: var(--paper-light);
     }
     .method { padding-block: 135px; }
     .section-heading { display: grid; grid-template-columns: 1fr; margin-bottom: 80px; }
@@ -305,17 +276,16 @@
     .includes { padding-block: 130px; background: var(--stone); }
     .includes__grid {
       display: grid;
-      grid-template-columns: minmax(360px, 0.9fr) minmax(420px, 1.1fr);
-      gap: 100px;
+      grid-template-columns: minmax(360px, 1.12fr) minmax(390px, 0.88fr);
+      gap: 76px;
     }
     .includes h2 { margin-top: 28px; }
     .includes__intro > p { max-width: 520px; margin-top: 28px; color: var(--ink-soft); }
     .micro-card {
       max-width: 420px;
-      margin-top: 46px;
-      padding: 24px;
-      background: rgba(247, 244, 239, 0.55);
-      border: 1px solid rgba(21, 21, 21, 0.13);
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(21, 21, 21, 0.18);
     }
     .micro-card span, .micro-card strong { display: block; }
     .micro-card span {
@@ -326,15 +296,16 @@
       letter-spacing: 0.16em;
     }
     .micro-card strong {
-      margin-top: 8px;
+      margin-top: 10px;
       font-family: var(--display);
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1.25;
+      font-size: 21px;
+      font-weight: 300;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
     }
     .deliverables {
       display: grid;
-      gap: 22px;
+      gap: 9px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -357,7 +328,8 @@
       font-size: 12px;
     }
     .fit { padding-block: 130px; }
-    .section-heading--center { grid-template-columns: 1fr; }
+    .section-heading--center { grid-template-columns: 1fr; text-align: center; }
+    .section-heading--center h2 { margin-inline: auto; }
     .fit__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .fit-card { min-height: 420px; padding: 52px; }
     .fit-card--yes {
@@ -406,43 +378,7 @@
       color: var(--ink-soft);
       font-size: 15px;
     }
-    .choice {
-      padding-block: 120px;
-      background: var(--paper-light);
-      border-top: 1px solid var(--line);
-    }
-    .choice__grid { display: grid; grid-template-columns: 1fr 0.8fr; align-items: center; gap: 100px; }
-    .choice h2 { max-width: 650px; }
-    .choice__options ul {
-      display: grid;
-      gap: 16px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      color: var(--ink-soft);
-    }
-    .choice__options li {
-      position: relative;
-      padding-left: 26px;
-    }
-    .choice__options li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 6px;
-      height: 6px;
-      background: var(--clay);
-      border-radius: 50%;
-    }
-    .choice__options p {
-      margin: 42px 0 0;
-      padding-top: 34px;
-      border-top: 1px solid var(--line);
-      font-family: var(--display);
-      font-size: 26px;
-      line-height: 1.3;
-    }
+    .final-cta { position: relative; overflow: hidden; }
     .final-cta__inner {
       min-height: 720px;
       display: grid;
@@ -450,17 +386,6 @@
       align-items: center;
       gap: 80px;
       padding-block: 100px;
-    }
-    .final-cta::before {
-      content: "";
-      position: absolute;
-      left: -180px;
-      top: -200px;
-      width: 560px;
-      height: 560px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 48% 52% 43% 57% / 56% 42% 58% 44%;
-      transform: rotate(24deg);
     }
     .final-cta__inner > div { position: relative; z-index: 1; }
     .final-cta__portrait {
@@ -485,19 +410,19 @@
     .final-cta h2 + p {
       max-width: 620px;
       margin: 30px 0 38px;
-      color: rgba(247, 244, 239, 0.75);
+      color: var(--ink);
       font-size: 18px;
     }
     .final-cta small {
       display: block;
       margin-top: 18px;
-      color: rgba(247, 244, 239, 0.55);
+      color: var(--ink-soft);
       font-size: 11px;
     }
     .site-footer {
-      background: var(--deep);
-      color: var(--paper-light);
-      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      background: var(--paper-light);
+      color: var(--ink);
+      border-top: 1px solid var(--line);
     }
     .site-footer__inner {
       min-height: 76px;
@@ -512,11 +437,11 @@
       transition: color 200ms ease;
     }
     .site-footer__handle:hover { color: var(--clay); }
-    .site-footer small { color: rgba(247, 244, 239, 0.55); font-size: 11px; }
+    .site-footer small { color: var(--ink-soft); font-size: 11px; }
     @media (max-width: 980px) {
       .hero { grid-template-columns: 1fr; gap: 40px; }
       .hero__art { width: min(600px, 100%); margin-inline: auto; }
-      .problem, .includes__grid, .choice__grid { grid-template-columns: 1fr; gap: 50px; }
+      .includes__grid { grid-template-columns: 1fr; gap: 50px; }
       .step { grid-template-columns: 72px 1fr; gap: 28px; padding: 40px 38px; }
       .step__content { grid-template-columns: 1fr; }
       .step ul { grid-column: 1; margin-top: 24px; }
@@ -526,20 +451,18 @@
     }
     @media (max-width: 720px) {
       .shell { width: min(100% - 32px, 620px); }
-      .topbar { padding-top: 26px; }
       .topbar { gap: 12px; padding-top: 26px; }
       .topbar img { height: 34px; }
-      .topbar span { font-size: 9px; letter-spacing: 0.1em; }
+      .topbar span { font-size: 10px; letter-spacing: 0.08em; }
       .hero { min-height: auto; padding-block: 78px 72px; }
       .hero h1 { font-size: clamp(38px, 11vw, 54px); }
       .hero__subtitle { font-size: 16px; }
       .hero__actions { align-items: flex-start; flex-direction: column; }
       .hero__art { min-height: 460px; }
-      .opening, .method, .includes, .fit, .choice { padding-block: 86px; }
+      .opening, .method, .includes, .fit { padding-block: 86px; }
       .opening__grid, .section-heading, .step { grid-template-columns: 1fr; gap: 26px; }
       .fit__cards { grid-template-columns: 1fr; }
-      .problem { gap: 32px; padding-block: 86px; }
-      .problem h2, .section-heading h2, .includes h2, .fit h2, .choice h2, .final-cta h2 {
+      .section-heading h2, .includes h2, .fit h2, .final-cta h2 {
         font-size: clamp(33px, 9.5vw, 46px);
       }
       .step { padding: 36px 26px; border-radius: 2px 48px 2px 2px; }
@@ -549,7 +472,6 @@
       .fit-card--yes, .fit-card--no { border-radius: 2px 58px 2px 2px; }
       .fit-card--yes ul, .fit-card--no h3 { margin-top: 30px; }
       .fit-card--no h3 { font-size: 23px; }
-      .choice__options p { font-size: 24px; }
       .final-cta__inner {
         min-height: auto;
         grid-template-columns: 1fr;
@@ -568,7 +490,12 @@
     @media (max-width: 420px) {
       .shell { width: calc(100% - 24px); }
       .hero-card { width: 82%; }
-      .button { width: 100%; }
+      .button {
+        width: 100%;
+        gap: 10px;
+        padding-left: 20px;
+        letter-spacing: 0.06em;
+      }
       .deliverables li { grid-template-columns: 24px 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -600,8 +527,6 @@
         </div>
       </div>
       <div class="hero__art" aria-label="Uma estratégia adaptada à sua rotina">
-        <div class="orbit orbit--one" aria-hidden="true"></div>
-        <div class="orbit orbit--two" aria-hidden="true"></div>
         <figure class="hero-card">
           <img src="img/tissi-hero.jpg" alt="Tissiana Ramos, nutricionista">
         </figure>
@@ -616,16 +541,6 @@
             <p><strong>O Método Vida Possível constrói uma estratégia a partir do que você precisa para sua saúde</strong> e dos objetivos que quer alcançar, sem ignorar a vida que você realmente vive.</p>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="problem shell">
-      <div class="problem__title">
-        <h2>O problema não é que você <em>não consegue</em> seguir dieta.</h2>
-      </div>
-      <div class="problem__body">
-        <p class="problem__lead">Muitas pessoas já sabem o que deveriam fazer. Mesmo assim, começam animadas e, algumas semanas depois, voltam ao mesmo lugar.</p>
-        <p>Sabem que precisam comer melhor, se organizar e mudar hábitos que atrapalham seus objetivos. Mas, muitas vezes, receberam um plano pensado para uma rotina que não existe.</p>
-        <p>Uma alimentação cheia de regras que não considera horários, trabalho, família, preferências, dificuldades, sintomas e situações que fazem parte da vida real.</p>
       </div>
     </section>
     <section class="method shell" id="metodo">
@@ -742,20 +657,6 @@
         </article>
       </div>
     </section>
-    <section class="choice">
-      <div class="shell choice__grid">
-        <div><h2>Você pode continuar tentando se virar sozinho(a).</h2></div>
-        <div class="choice__options">
-          <ul>
-            <li>Juntando dicas</li>
-            <li>Testando dietas</li>
-            <li>Copiando estratégias que funcionaram para outras pessoas</li>
-            <li>Começando toda segunda-feira e parando quando a rotina muda</li>
-          </ul>
-          <p>Ou pode entender o que realmente precisa ser considerado no seu caso e construir uma estratégia alimentar para a sua realidade.</p>
-        </div>
-      </div>
-    </section>
     <section class="final-cta" id="agendar">
       <div class="shell final-cta__inner">
         <figure class="final-cta__portrait">
@@ -764,7 +665,7 @@
         <div>
           <h2>Vamos construir uma alimentação que faça sentido para a sua vida?</h2>
           <p>Fale comigo para entender como funciona o acompanhamento e verificar a disponibilidade de agenda.</p>
-          <a class="button button--light" href="https://wa.me/557799052802?text=Ol%C3%A1%21%20Quero%20entender%20como%20funciona%20o%20M%C3%A9todo%20Vida%20Poss%C3%ADvel%20e%20verificar%20a%20disponibilidade%20de%20agenda." target="_blank" rel="noreferrer" aria-label="Quero marcar minha consulta pelo WhatsApp">
+          <a class="button button--clay" href="https://wa.me/557799052802?text=Ol%C3%A1%21%20Quero%20entender%20como%20funciona%20o%20M%C3%A9todo%20Vida%20Poss%C3%ADvel%20e%20verificar%20a%20disponibilidade%20de%20agenda." target="_blank" rel="noreferrer" aria-label="Quero marcar minha consulta pelo WhatsApp">
             <span>Quero marcar minha consulta</span>
             <span class="button__arrow" aria-hidden="true">↗</span>
           </a>
